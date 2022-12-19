@@ -28,7 +28,6 @@ RUN apt-get update && apt-get install -y \
 RUN R -e "install.packages(c('shiny', 'rmarkdown'), repos='https://cloud.r-project.org/')"
 RUN R -e "install.packages('git2r', repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('devtools', repos='http://cran.rstudio.com/')"
-
 RUN R -e "install.packages('shinyFeedback', repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('calidad', repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('shiny', repos='http://cran.rstudio.com/')"
@@ -58,7 +57,7 @@ ADD id_rsa /root/.ssh/id_rsa
 RUN chmod 777 /root/.ssh/id_rsa
 ADD id_rsa.pub /root/.ssh/id_rsa.pub
 RUN chmod 777 /root/.ssh/id_rsa.pub
-RUN R -e "devtools::install_git('git@git.ine.gob.cl:root/shiny-calidad-2.git', credentials = git2r::cred_ssh_key('/root/.ssh/id_rsa.pub', '/root/.ssh/id_rsa'))"
+# RUN R -e "devtools::install_git('git@git.ine.gob.cl:root/shiny-calidad-2.git', credentials = git2r::cred_ssh_key('/root/.ssh/id_rsa.pub', '/root/.ssh/id_rsa'))"
 RUN mkdir /root/calidadv2
 COPY R /root/calidadv2
 COPY Rprofile.site /usr/lib/R/etc/
