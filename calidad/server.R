@@ -12,7 +12,7 @@
 # definir Base de datos a subir
 # base ESI debemos
 
-library(calidad)
+#library(calidad)
 library(dplyr)
 library(feather)
 library(forcats)

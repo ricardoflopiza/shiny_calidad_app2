@@ -53,7 +53,7 @@ create_tabulado = function(base, v_interes, v_cruce,  v_subpob, v_fexp1, v_congl
   if(tipoCALCULO == "dos"){
     if(!is.null(denominator)){
 
-      evaluados = calidad::evaluate(funciones_cal[[numero]](var = v_interes,
+      evaluados = calidad::assess(funciones_cal[[numero]](var = v_interes,
                                                          design = dc,
                                                          domains = v_cruce_string,
                                                          ci = ci,
@@ -62,7 +62,7 @@ create_tabulado = function(base, v_interes, v_cruce,  v_subpob, v_fexp1, v_congl
                                                          log_cv= log_cv)
                                     ,scheme = scheme,publish = T)
     }else{
-      evaluados = calidad::evaluate(funciones_cal[[numero]](var = v_interes,
+      evaluados = calidad::assess(funciones_cal[[numero]](var = v_interes,
                                                          design = dc,
                                                          domains = v_cruce_string,
                                                          ci = ci,
@@ -76,7 +76,7 @@ create_tabulado = function(base, v_interes, v_cruce,  v_subpob, v_fexp1, v_congl
 
   }else{
 
-    evaluados = calidad::evaluate(funciones_cal[[numero]](var = v_interes,
+    evaluados = calidad::assess(funciones_cal[[numero]](var = v_interes,
                                                        design = dc,
                                                        domains = v_cruce_string,
                                                        ci = ci,
