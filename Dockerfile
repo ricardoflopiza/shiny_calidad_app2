@@ -54,7 +54,7 @@ COPY calidad .
 RUN chown app:app -R /calidad/
 USER app
 EXPOSE 3838
-CMD ["R", "-e", "shiny::runApp('/calidad/')"]
+CMD ["R", "-e", "shiny::runApp()"]
 #RUN mkdir -p /root/.ssh
 #ADD id_rsa /root/.ssh/id_rsa
 #RUN chmod 777 /root/.ssh/id_rsa
