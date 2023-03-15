@@ -55,7 +55,7 @@ WORKDIR /srv/shiny-server/
 
 COPY ./calidad ./calidad
 
-ENTRYPOINT ["Rscript /calidad/run_app.R"]
+ENTRYPOINT ["Rscript ./calidad/run_app.R"]
 
 #RUN mkdir -p /root/.ssh
 #ADD id_rsa /root/.ssh/id_rsa
