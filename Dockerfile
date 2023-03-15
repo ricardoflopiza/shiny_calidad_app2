@@ -47,16 +47,14 @@ RUN R -e "install.packages('stringr', repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('survey', repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('shinyBS', repos='http://cran.rstudio.com/')"
 
-FROM rocker/shiny:4.1.0
-
-RUN rm -rf /srv/shiny-server/*
-
-WORKDIR /srv/shiny-server/
-
-COPY ./calidad ./calidad
-
-ENTRYPOINT ["Rscript ./calidad/run_app.R"]
-
+RUN addgroup --system app \
+    && adduser --system --ingroup app app
+WORKDIR /calidad/app
+COPY app .
+RUN chown app:app -R /calidad/app
+USER app
+EXPOSE 3838
+CMD ["R", "-e", "shiny::runApp('/calidad/app')"]
 #RUN mkdir -p /root/.ssh
 #ADD id_rsa /root/.ssh/id_rsa
 #RUN chmod 777 /root/.ssh/id_rsa
