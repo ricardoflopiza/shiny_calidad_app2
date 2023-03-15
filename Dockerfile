@@ -47,14 +47,29 @@ RUN R -e "install.packages('stringr', repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('survey', repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('shinyBS', repos='http://cran.rstudio.com/')"
 
-RUN mkdir -p /root/.ssh
-ADD id_rsa /root/.ssh/id_rsa
-RUN chmod 777 /root/.ssh/id_rsa
-ADD id_rsa.pub /root/.ssh/id_rsa.pub
-RUN chmod 777 /root/.ssh/id_rsa.pub
-# RUN R -e "devtools::install_git('git@git.ine.gob.cl:root/shiny-calidad-2.git', credentials = git2r::cred_ssh_key('/root/.ssh/id_rsa.pub', '/root/.ssh/id_rsa'))"
-RUN mkdir /root/calidadv2
-COPY R /root/calidadv2
-COPY Rprofile.site /usr/lib/R/etc/
-EXPOSE 8080
-ENTRYPOINT ["Rscript "run_app.R"]
+FROM rocker/shiny:4.1.0
+
+RUN rm -rf /srv/shiny-server/*
+
+WORKDIR /srv/shiny-server/
+
+COPY ./app.R ./app.R
+
+
+
+#RUN mkdir -p /root/.ssh
+#ADD id_rsa /root/.ssh/id_rsa
+#RUN chmod 777 /root/.ssh/id_rsa
+#ADD id_rsa.pub /root/.ssh/id_rsa.pub
+#RUN chmod 777 /root/.ssh/id_rsa.pub
+## RUN R -e "devtools::install_git('git@git.ine.gob.cl:root/shiny-calidad-2.git', credentials = git2r::cred_ssh_key('/root/.ssh/id_rsa.pub', '/root/.ssh/id_rsa'))"
+#RUN mkdir /root/calidadv2
+#COPY R /root/calidadv2
+#COPY Rprofile.site /usr/lib/R/etc/
+#EXPOSE 8080
+#ENTRYPOINT ["Rscript "run_app.R"]
+
+
+
+
+
