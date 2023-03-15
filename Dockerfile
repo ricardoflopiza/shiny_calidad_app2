@@ -55,7 +55,7 @@ WORKDIR /srv/shiny-server/
 
 COPY ./calidad ./calidad
 
-
+ENTRYPOINT ["Rscript /calidad/run_app.R"]
 
 #RUN mkdir -p /root/.ssh
 #ADD id_rsa /root/.ssh/id_rsa
@@ -67,7 +67,7 @@ COPY ./calidad ./calidad
 #COPY R /root/calidadv2
 #COPY Rprofile.site /usr/lib/R/etc/
 #EXPOSE 8080
-#ENTRYPOINT ["Rscript "run_app.R"]
+#ENTRYPOINT ["Rscript run_app.R"]
 
 
 
