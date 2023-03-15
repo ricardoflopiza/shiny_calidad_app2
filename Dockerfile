@@ -53,7 +53,7 @@ RUN rm -rf /srv/shiny-server/*
 
 WORKDIR /srv/shiny-server/
 
-COPY ./app.R ./app.R
+COPY ./calidad ./calidad
 
 
 
