@@ -57,7 +57,7 @@ COPY calidad .
 RUN chown app:app -R /calidad
 USER app
 EXPOSE 3838
-CMD ["R", "-e", "shiny::runApp('/calidad)"]
+CMD ["R", "-e", "shiny::runApp()"]
 #RUN mkdir -p /root/.ssh
 #ADD id_rsa /root/.ssh/id_rsa
 #RUN chmod 777 /root/.ssh/id_rsa
@@ -69,6 +69,7 @@ CMD ["R", "-e", "shiny::runApp('/calidad)"]
 #COPY Rprofile.site /usr/lib/R/etc/
 #EXPOSE 8080
 #ENTRYPOINT ["Rscript run_app.R"]
+
 
 
 
