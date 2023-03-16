@@ -47,6 +47,9 @@ RUN R -e "install.packages('stringr', repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('survey', repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('shinyBS', repos='http://cran.rstudio.com/')"
 
+
+RUN echo "local(options(shiny.port = 3838, shiny.host = '0.0.0.0'))" > /usr/lib/R/etc/Rprofile.site
+
 RUN addgroup --system app \
     && adduser --system --ingroup app app
 WORKDIR /calidad
