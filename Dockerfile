@@ -49,12 +49,12 @@ RUN R -e "install.packages('shinyBS', repos='http://cran.rstudio.com/')"
 
 RUN addgroup --system app \
     && adduser --system --ingroup app app
-WORKDIR /calidad/
+WORKDIR /calidad
 COPY calidad .
-RUN chown app:app -R /calidad/
+RUN chown app:app -R /calidad
 USER app
 EXPOSE 3838
-CMD ["R", "-e", "shiny::runApp()"]
+CMD ["R", "-e", "shiny::runApp('/calidad)"]
 #RUN mkdir -p /root/.ssh
 #ADD id_rsa /root/.ssh/id_rsa
 #RUN chmod 777 /root/.ssh/id_rsa
