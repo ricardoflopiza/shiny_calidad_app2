@@ -182,6 +182,23 @@ if(auto_load){
 
   ### update inputs ####
 
+#
+#   observeEvent(input$tipoCALCULO, {
+# #
+#      # print(input$tipoCALCULO)
+# #     print(input$varDENOM)
+# #
+#
+#     # if (!is.null(input$varDENOM)) {
+#     #    updateRadioButtons(session, "SCHEME", choices = list("chile" = "chile"), selected = "chile")
+#     #  } else {
+#     #    updateRadioButtons(session, "SCHEME", choices = list("chile" = "chile","cepal" = "eclac"), selected = "chile")
+#     #  }
+#
+#
+#  })
+
+
   observeEvent(list(datos(),
                     input$Id004,
                     input$base_web_ine),{
@@ -192,13 +209,30 @@ if(auto_load){
           )
 })
 
-  observeEvent(list(any(is.null(datos()),input$tipoCALCULO == "Proporción"),
+  observeEvent(list(any(is.null(datos()),input$tipoCALCULO == "dos"),
                input$Id004,
                input$base_web_ine),{
     updateSelectizeInput(session, "varDENOM",
                       choices = c("",variables_int())
                  )
   })
+
+
+  observeEvent(!is.null(input$varDENOM),{
+
+    if(!is.null(input$varDENOM)){
+      msg = "denom_not_null"
+    }else{
+      msg ="denom_null"
+    }
+
+     session$sendCustomMessage(
+       type = "send-notice", message = msg
+     )
+
+  })
+
+
 
   observeEvent(list(datos(),
                     input$Id004,
@@ -249,12 +283,15 @@ if(auto_load){
 
   })
 
-  output$denominador <- renderUI({
-    req(input$tipoCALCULO == "Proporción" & input$SCHEME == "chile")
-    selectInput("varDENOM", label = h5("Denominador - Opcional"),choices = variables_int(), selected = NULL, multiple = T)
-    # selectInput("varINTERES", label = h5("Variable de interés"),choices = "",  multiple = F),
-
-  })
+  # output$denominador <- renderUI({
+  #   # el denominador solo se despliega con el esquema de chile
+  #   req(input$tipoCALCULO == "dos" & input$SCHEME == "chile")         #
+  #
+  #   div(id= "fe_denom",
+  #   selectInput("varDENOM", label = h5("Denominador - Opcional"),choices = "", selected = NULL, multiple = T))
+  #   # selectInput("varINTERES", label = h5("Variable de interés"),choices = "",  multiple = F),
+  #
+  # })
 
 
   #### + O U T P U T S + ####
@@ -500,7 +537,7 @@ observeEvent(input$actionTAB,{
   ### warning alert var denom ####
 
   wrn_var_denom <- reactive({
-    #  req(input$tipoCALCULO == "Proporción", input$varDENOM)
+    #  req(input$tipoCALCULO == "dos", input$varDENOM)
     if(show_wrn == F | is.null(input$varDENOM)){
 
       even = FALSE

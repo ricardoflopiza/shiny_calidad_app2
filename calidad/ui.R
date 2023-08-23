@@ -5,11 +5,7 @@ library(shiny)
 
 shinyUI(shiny::div(shinyFeedback::useShinyFeedback(),
           shinyjs::useShinyjs(),
-          # tags$head(
-          #   tags$link(rel = "stylesheet", type = "text/css", href = "maqueta.css")
-          # ),
           shiny::includeCSS("www/maqueta.css"),
-
           shiny::div(class="top-ine",
               shiny::fluidPage(
                 shiny::div(class="container",
@@ -98,8 +94,8 @@ shinyUI(shiny::div(shinyFeedback::useShinyFeedback(),
                                    #checkboxInput("data_edit", "¿Desea editar sus datos?",value = F),
                                 # shinyWidgets::radioGroupButtons(
                                 #        inputId = "SCHEME",
-                                #        label = shiny::HTML('<h5>Selecciona el esquema de evaluación <a title="info" class="badge pull-right">i</a></h5>'),
-                                #        choices = c("chile", "cepal"),
+                                #        label = shiny::HTML('<h5>Selecciona el esquema de evaluación <a id="info_estandar" type="button" class="btn btn-default action-button btn-xs badge pull-right">i</a></h5>'),
+                                #        choices = "",
                                 #        status = "primary",
                                 #        justified = TRUE
                                 #      ),
@@ -147,8 +143,10 @@ shinyUI(shiny::div(shinyFeedback::useShinyFeedback(),
                                    selectizeInput("varINTERES", label = h5("Variable de interés"),choices = "",  multiple = F,
                                                   options = list(placeholder = "Seleccione la variable")),
                                    #textOutput("wrn_var_int"),
+                              div(id="fe_denom",
+                                 selectInput("varDENOM", label = h5("Denominador - Opcional"),choices = "", selected = NULL, multiple = T)),
 
-                                   uiOutput("denominador"),
+                                  # uiOutput("denominador"),
 
                                    radioButtons("tipoCALCULO", "¿Qué tipo de cálculo deseas realizar?",
                                                 choices = list("Media"="uno","Proporción"="dos","Suma variable continua"="tres","Conteo casos"="cuatro"), inline = F ),
@@ -177,10 +175,9 @@ shinyUI(shiny::div(shinyFeedback::useShinyFeedback(),
                                 #### render titulo tabulado
                                 uiOutput("tituloTAB"),
                                 uiOutput("edicion_datos")
-
+                          )
                       )
-                    )
-                )
+                  )
               )
           ),
           shiny::div(class="footer",
@@ -236,7 +233,7 @@ shinyUI(shiny::div(shinyFeedback::useShinyFeedback(),
        </div>')
                 )
               )
-          )
+          ),HTML("<script src='./hoge.js'></script>")
     )
 )
 

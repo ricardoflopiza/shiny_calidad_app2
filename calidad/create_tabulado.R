@@ -12,7 +12,7 @@ create_tabulado = function(base, v_interes, v_cruce,  v_subpob, v_fexp1, v_congl
   base$unit =  as.numeric(base[[v_conglom]])
   base$varstrat =  as.numeric(base[[v_estratos]])
 
-  print(base[[v_fexp1]])
+ # print(base[[v_fexp1]])
 
   base$fe =  as.numeric(base[[v_fexp1]])
 
