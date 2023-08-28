@@ -31,15 +31,6 @@ scheme = document.querySelector("#SCHEME")
 // console.log(btnCepal)
 val_eclac = scheme.querySelectorAll("input[type='radio']")
 
-// console.log("val_eclac")
-// console.log(val_eclac)
-//
-// val_eclac.onchange = () =>{
-//
-//   console.log(val_eclac.value)
-//
-// }
-
 //  //  cuando se cambia al esquema cepal desaparece el denominador
   for (match in val_eclac) {
      val_eclac[match].onchange = function() {
@@ -54,11 +45,6 @@ val_eclac = scheme.querySelectorAll("input[type='radio']")
   console.log(valor)
      }
   }
-
-
-
-
-//console.log(document.getElementsByName("SCHEME").querySelector("input[type='radio']"))
 
 
 

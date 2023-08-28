@@ -4,9 +4,17 @@
 # purrr::map(attachment::att_from_rscripts(),usethis::use_package)
 
 # pendiente
-# El error en la carga shiny proxy muestra una O de mas.
 # validar la entrada de código malicioso. Andrew va a conversar con seguridad de la información para explorar esta árista
-# falta el punto del orden de generar tabulado y descargar tabulado
+
+## 1- Siempre se pone primero la etiqueta si la hay, preguntar a usuarios, cuando existan, si desea sacarla
+## todas las tablas desde el 2016 en adelante.
+## EPF Personas -> requiere tratamiento
+## ESI
+## ENUSC -> solo kish
+
+# 3 probar dockerfile
+
+# 4 video
 
 # Generar manual básico de preguntas y respuestas para Tamara de Atención Ciudadana.
 # definir Base de datos a subir
@@ -85,12 +93,17 @@ shinyServer(function(input, output, session) {
   output$datos_locales <- renderUI({
     req(input$Id004 == "Base externa")
 
-    renderUI_origen_datos("Base externa")})
+    renderUI_origen_datos("Base externa")
+
+
+    })
 
   output$DescargaINE <-  renderUI({
     req(input$Id004 == "Bases INE")
 
-    renderUI_origen_datos("Bases INE")})
+    renderUI_origen_datos("Bases INE")
+
+    })
 
   ### + I N P U T S + ####
 
@@ -163,6 +176,8 @@ if(auto_load){
   variables_int <- reactive({
     if (!is.null(input$file)) {
       names(data_input())
+
+
     } else if (!is.null(descarga())) {
       names(descarga())
     }
