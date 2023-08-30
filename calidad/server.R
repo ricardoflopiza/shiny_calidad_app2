@@ -21,7 +21,7 @@
 # base ESI debemos
 
 #library(calidad)
-library(dplyr)
+#library(dplyr)
 library(feather)
 library(forcats)
 library(ggplot2)
@@ -77,7 +77,7 @@ debug = F
 show_wrn = T
 
 # SERVER ----
-shinyServer(function(input, output, session) {
+shiny::shinyServer(function(input, output, session) {
   ### trakear error ####
   ## options(shiny.trace = TRUE)
 
@@ -91,7 +91,7 @@ shinyServer(function(input, output, session) {
 
 
   output$datos_locales <- renderUI({
-    req(input$Id004 == "Base externa")
+    shiny::req(input$Id004 == "Base externa")
 
     renderUI_origen_datos("Base externa")
 
