@@ -1,0 +1,150 @@
+{
+  "input": {
+    "actionTAB": 3,
+    "base_ine": 1,
+    "base_web_ine": "ESI 2016",
+    "IC": true,
+    "Id004": "Bases INE",
+    "info_estandar": 0,
+    "reset": 0,
+    "SCHEME": "chile",
+    "show": 0,
+    "tipoCALCULO": "uno",
+    "varCONGLOM": "id_directorio",
+    "varCRUCE": "region",
+    "varDENOM": null,
+    "varESTRATOS": "estrato",
+    "varFACT1": "fact_cal_esi",
+    "varINTERES": "ing_a_t",
+    "varSUBPOB": ""
+  },
+  "output": {
+    "datos_locales": {
+      "message": "",
+      "call": "NULL",
+      "type": [
+        "shiny.silent.error",
+        "validation"
+      ]
+    },
+    "DescargaINE": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" id=\"base_web_ine-label\" for=\"base_web_ine\">\n    <h4>Utilizar una base de datos del INE<\/h4>\n  <\/label>\n  <div>\n    <select id=\"base_web_ine\"><option value=\"ENUSC 2016\" selected>ENUSC 2016<\/option>\n<option value=\"ENUSC 2017\">ENUSC 2017<\/option>\n<option value=\"ENUSC 2018\">ENUSC 2018<\/option>\n<option value=\"ENUSC 2019\">ENUSC 2019<\/option>\n<option value=\"ENUSC 2020\">ENUSC 2020<\/option>\n<option value=\"ENUSC 2021\">ENUSC 2021<\/option>\n<option value=\"EPF Personas\">EPF Personas<\/option>\n<option value=\"ESI 2016\">ESI 2016<\/option>\n<option value=\"ESI 2017\">ESI 2017<\/option>\n<option value=\"ESI 2018\">ESI 2018<\/option>\n<option value=\"ESI 2019\">ESI 2019<\/option>\n<option value=\"ESI 2020\">ESI 2020<\/option>\n<option value=\"ESI 2021\">ESI 2021<\/option>\n<option value=\"ESI 2022\">ESI 2022<\/option><\/select>\n    <script type=\"application/json\" data-for=\"base_web_ine\" data-nonempty=\"\">{\"plugins\":[\"selectize-plugin-a11y\"]}<\/script>\n  <\/div>\n<\/div>\n<button id=\"base_ine\" type=\"button\" class=\"btn btn-default action-button\">Cargar base desde el INE<\/button>",
+      "deps": [
+        {
+          "name": "selectize",
+          "version": "0.12.4",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": [
+            "js/selectize.min.js",
+            "accessibility/js/selectize-plugin-a11y.min.js"
+          ],
+          "stylesheet": "css/selectize.bootstrap3.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "edicion_datos": {
+      "message": "",
+      "call": "NULL",
+      "type": [
+        "shiny.silent.error",
+        "validation"
+      ]
+    },
+    "etiqueta": null,
+    "grafico": {
+      "src": "[image data hash: e5363882a877ec625a9ed2a4386112ec]",
+      "width": 800,
+      "height": 170,
+      "alt": "Plot object",
+      "coordmap": {
+        "panels": [
+          {
+            "panel": 1,
+            "row": 1,
+            "col": 1,
+            "panel_vars": {
+
+            },
+            "log": {
+              "x": null,
+              "y": null
+            },
+            "domain": {
+              "left": -5,
+              "right": 105,
+              "bottom": 0.505,
+              "top": 1.495
+            },
+            "mapping": {
+              "x": "porcentaje",
+              "y": "row",
+              "fill": "calidad"
+            },
+            "range": {
+              "left": 8.219177054794523,
+              "right": 670.8506757949626,
+              "bottom": 135.8492351571313,
+              "top": 25.95888883964545
+            }
+          }
+        ],
+        "dims": {
+          "width": 800,
+          "height": 170
+        }
+      }
+    },
+    "PRUEBAS2": {
+      "html": "<h5>Datos: ESI 2016<\/h5>",
+      "deps": [
+
+      ]
+    },
+    "tabulado": "<table style='color: black; font-family: arial; width: auto !important; margin-left: auto; margin-right: auto; font-family: \"Arial Narrow\", arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;' class=\"table table-striped lightable-paper lightable-hover\">\n <thead>\n  <tr>\n   <th style=\"text-align:center;font-weight: bold;color: black !important;\"> region <\/th>\n   <th style=\"text-align:center;font-weight: bold;color: black !important;\"> stat <\/th>\n   <th style=\"text-align:center;font-weight: bold;color: black !important;\"> se <\/th>\n   <th style=\"text-align:center;font-weight: bold;color: black !important;\"> df <\/th>\n   <th style=\"text-align:center;font-weight: bold;color: black !important;\"> n <\/th>\n   <th style=\"text-align:center;font-weight: bold;color: black !important;\"> cv <\/th>\n   <th style=\"text-align:center;font-weight: bold;color: black !important;\"> t <\/th>\n   <th style=\"text-align:center;font-weight: bold;color: black !important;\"> lower <\/th>\n   <th style=\"text-align:center;font-weight: bold;color: black !important;\"> upper <\/th>\n   <th style=\"text-align:center;font-weight: bold;color: black !important;\"> eval_n <\/th>\n   <th style=\"text-align:center;font-weight: bold;color: black !important;\"> eval_df <\/th>\n   <th style=\"text-align:center;font-weight: bold;color: black !important;\"> eval_cv <\/th>\n   <th style=\"text-align:center;font-weight: bold;color: black !important;\"> calidad <\/th>\n  <\/tr>\n <\/thead>\n<tbody>\n  <tr>\n   <td style=\"text-align:center;\"> Región de Tarapacá <\/td>\n   <td style=\"text-align:center;\"> 11.867,35 <\/td>\n   <td style=\"text-align:center;\"> 2.983,90 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">105<\/span> <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">3381<\/span> <\/td>\n   <td style=\"text-align:center;\"> 0,25 <\/td>\n   <td style=\"text-align:center;\"> 1,98 <\/td>\n   <td style=\"text-align:center;\"> 5.950,83 <\/td>\n   <td style=\"text-align:center;\"> 17.783,87 <\/td>\n   <td style=\"text-align:center;\"> sufficient sample size <\/td>\n   <td style=\"text-align:center;\"> sufficient df <\/td>\n   <td style=\"text-align:center;\"> cv between 0.15 and 0.3 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;\">poco fiable<\/span> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:center;\"> Región de Antofagasta <\/td>\n   <td style=\"text-align:center;\"> 13.757,03 <\/td>\n   <td style=\"text-align:center;\"> 3.682,86 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">147<\/span> <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">3542<\/span> <\/td>\n   <td style=\"text-align:center;\"> 0,27 <\/td>\n   <td style=\"text-align:center;\"> 1,98 <\/td>\n   <td style=\"text-align:center;\"> 6.478,83 <\/td>\n   <td style=\"text-align:center;\"> 21.035,23 <\/td>\n   <td style=\"text-align:center;\"> sufficient sample size <\/td>\n   <td style=\"text-align:center;\"> sufficient df <\/td>\n   <td style=\"text-align:center;\"> cv between 0.15 and 0.3 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;\">poco fiable<\/span> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:center;\"> Región de Atacama <\/td>\n   <td style=\"text-align:center;\"> 3.834,22 <\/td>\n   <td style=\"text-align:center;\"> 923,14 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">115<\/span> <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">2934<\/span> <\/td>\n   <td style=\"text-align:center;\"> 0,24 <\/td>\n   <td style=\"text-align:center;\"> 1,98 <\/td>\n   <td style=\"text-align:center;\"> 2.005,65 <\/td>\n   <td style=\"text-align:center;\"> 5.662,79 <\/td>\n   <td style=\"text-align:center;\"> sufficient sample size <\/td>\n   <td style=\"text-align:center;\"> sufficient df <\/td>\n   <td style=\"text-align:center;\"> cv between 0.15 and 0.3 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;\">poco fiable<\/span> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:center;\"> Región de Coquimbo <\/td>\n   <td style=\"text-align:center;\"> 6.929,86 <\/td>\n   <td style=\"text-align:center;\"> 1.771,78 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">225<\/span> <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">6186<\/span> <\/td>\n   <td style=\"text-align:center;\"> 0,26 <\/td>\n   <td style=\"text-align:center;\"> 1,97 <\/td>\n   <td style=\"text-align:center;\"> 3.438,45 <\/td>\n   <td style=\"text-align:center;\"> 10.421,27 <\/td>\n   <td style=\"text-align:center;\"> sufficient sample size <\/td>\n   <td style=\"text-align:center;\"> sufficient df <\/td>\n   <td style=\"text-align:center;\"> cv between 0.15 and 0.3 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;\">poco fiable<\/span> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:center;\"> Región de Valparaíso <\/td>\n   <td style=\"text-align:center;\"> 9.215,87 <\/td>\n   <td style=\"text-align:center;\"> 1.174,48 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">601<\/span> <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">14054<\/span> <\/td>\n   <td style=\"text-align:center;\"> 0,13 <\/td>\n   <td style=\"text-align:center;\"> 1,96 <\/td>\n   <td style=\"text-align:center;\"> 6.909,29 <\/td>\n   <td style=\"text-align:center;\"> 11.522,44 <\/td>\n   <td style=\"text-align:center;\"> sufficient sample size <\/td>\n   <td style=\"text-align:center;\"> sufficient df <\/td>\n   <td style=\"text-align:center;\"> cv &lt;= 0.15 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: green !important;\">fiable<\/span> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:center;\"> Región del Libertador Gral. Bernardo O’Higgins <\/td>\n   <td style=\"text-align:center;\"> 4.478,15 <\/td>\n   <td style=\"text-align:center;\"> 1.080,35 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">212<\/span> <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">6187<\/span> <\/td>\n   <td style=\"text-align:center;\"> 0,24 <\/td>\n   <td style=\"text-align:center;\"> 1,97 <\/td>\n   <td style=\"text-align:center;\"> 2.348,55 <\/td>\n   <td style=\"text-align:center;\"> 6.607,75 <\/td>\n   <td style=\"text-align:center;\"> sufficient sample size <\/td>\n   <td style=\"text-align:center;\"> sufficient df <\/td>\n   <td style=\"text-align:center;\"> cv between 0.15 and 0.3 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;\">poco fiable<\/span> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:center;\"> Región del Maule <\/td>\n   <td style=\"text-align:center;\"> 2.958,41 <\/td>\n   <td style=\"text-align:center;\"> 543,96 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">253<\/span> <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">6752<\/span> <\/td>\n   <td style=\"text-align:center;\"> 0,18 <\/td>\n   <td style=\"text-align:center;\"> 1,97 <\/td>\n   <td style=\"text-align:center;\"> 1.887,14 <\/td>\n   <td style=\"text-align:center;\"> 4.029,68 <\/td>\n   <td style=\"text-align:center;\"> sufficient sample size <\/td>\n   <td style=\"text-align:center;\"> sufficient df <\/td>\n   <td style=\"text-align:center;\"> cv between 0.15 and 0.3 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;\">poco fiable<\/span> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:center;\"> Región del Biobío <\/td>\n   <td style=\"text-align:center;\"> 2.544,99 <\/td>\n   <td style=\"text-align:center;\"> 433,57 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">488<\/span> <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">11673<\/span> <\/td>\n   <td style=\"text-align:center;\"> 0,17 <\/td>\n   <td style=\"text-align:center;\"> 1,96 <\/td>\n   <td style=\"text-align:center;\"> 1.693,09 <\/td>\n   <td style=\"text-align:center;\"> 3.396,89 <\/td>\n   <td style=\"text-align:center;\"> sufficient sample size <\/td>\n   <td style=\"text-align:center;\"> sufficient df <\/td>\n   <td style=\"text-align:center;\"> cv between 0.15 and 0.3 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;\">poco fiable<\/span> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:center;\"> Región de La Araucanía <\/td>\n   <td style=\"text-align:center;\"> 4.087,76 <\/td>\n   <td style=\"text-align:center;\"> 732,93 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">243<\/span> <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">5386<\/span> <\/td>\n   <td style=\"text-align:center;\"> 0,18 <\/td>\n   <td style=\"text-align:center;\"> 1,97 <\/td>\n   <td style=\"text-align:center;\"> 2.644,05 <\/td>\n   <td style=\"text-align:center;\"> 5.531,48 <\/td>\n   <td style=\"text-align:center;\"> sufficient sample size <\/td>\n   <td style=\"text-align:center;\"> sufficient df <\/td>\n   <td style=\"text-align:center;\"> cv between 0.15 and 0.3 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;\">poco fiable<\/span> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:center;\"> Región de Los Lagos <\/td>\n   <td style=\"text-align:center;\"> 6.219,85 <\/td>\n   <td style=\"text-align:center;\"> 1.944,22 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">233<\/span> <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">6274<\/span> <\/td>\n   <td style=\"text-align:center;\"> 0,31 <\/td>\n   <td style=\"text-align:center;\"> 1,97 <\/td>\n   <td style=\"text-align:center;\"> 2.389,36 <\/td>\n   <td style=\"text-align:center;\"> 10.050,34 <\/td>\n   <td style=\"text-align:center;\"> sufficient sample size <\/td>\n   <td style=\"text-align:center;\"> sufficient df <\/td>\n   <td style=\"text-align:center;\"> cv &gt; 0.3 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;\">no fiable<\/span> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:center;\"> Región de Aysén del Gral. Carlos Ibáñez del Campo <\/td>\n   <td style=\"text-align:center;\"> 10.035,27 <\/td>\n   <td style=\"text-align:center;\"> 2.101,38 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">116<\/span> <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">2140<\/span> <\/td>\n   <td style=\"text-align:center;\"> 0,21 <\/td>\n   <td style=\"text-align:center;\"> 1,98 <\/td>\n   <td style=\"text-align:center;\"> 5.873,22 <\/td>\n   <td style=\"text-align:center;\"> 14.197,32 <\/td>\n   <td style=\"text-align:center;\"> sufficient sample size <\/td>\n   <td style=\"text-align:center;\"> sufficient df <\/td>\n   <td style=\"text-align:center;\"> cv between 0.15 and 0.3 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;\">poco fiable<\/span> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:center;\"> Región de Magallanes y Antártica Chilena <\/td>\n   <td style=\"text-align:center;\"> 6.765,75 <\/td>\n   <td style=\"text-align:center;\"> 1.232,13 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">79<\/span> <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">1256<\/span> <\/td>\n   <td style=\"text-align:center;\"> 0,18 <\/td>\n   <td style=\"text-align:center;\"> 1,99 <\/td>\n   <td style=\"text-align:center;\"> 4.313,27 <\/td>\n   <td style=\"text-align:center;\"> 9.218,24 <\/td>\n   <td style=\"text-align:center;\"> sufficient sample size <\/td>\n   <td style=\"text-align:center;\"> sufficient df <\/td>\n   <td style=\"text-align:center;\"> cv between 0.15 and 0.3 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;\">poco fiable<\/span> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:center;\"> Región Metropolitana <\/td>\n   <td style=\"text-align:center;\"> 7.174,00 <\/td>\n   <td style=\"text-align:center;\"> 947,42 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">807<\/span> <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">24320<\/span> <\/td>\n   <td style=\"text-align:center;\"> 0,13 <\/td>\n   <td style=\"text-align:center;\"> 1,96 <\/td>\n   <td style=\"text-align:center;\"> 5.314,30 <\/td>\n   <td style=\"text-align:center;\"> 9.033,70 <\/td>\n   <td style=\"text-align:center;\"> sufficient sample size <\/td>\n   <td style=\"text-align:center;\"> sufficient df <\/td>\n   <td style=\"text-align:center;\"> cv &lt;= 0.15 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: green !important;\">fiable<\/span> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:center;\"> Región de Los Ríos <\/td>\n   <td style=\"text-align:center;\"> 3.578,63 <\/td>\n   <td style=\"text-align:center;\"> 814,40 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">101<\/span> <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">2707<\/span> <\/td>\n   <td style=\"text-align:center;\"> 0,23 <\/td>\n   <td style=\"text-align:center;\"> 1,98 <\/td>\n   <td style=\"text-align:center;\"> 1.963,08 <\/td>\n   <td style=\"text-align:center;\"> 5.194,18 <\/td>\n   <td style=\"text-align:center;\"> sufficient sample size <\/td>\n   <td style=\"text-align:center;\"> sufficient df <\/td>\n   <td style=\"text-align:center;\"> cv between 0.15 and 0.3 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;\">poco fiable<\/span> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:center;\"> Región de Arica y Parinacota <\/td>\n   <td style=\"text-align:center;\"> 9.344,37 <\/td>\n   <td style=\"text-align:center;\"> 2.315,89 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">180<\/span> <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">3648<\/span> <\/td>\n   <td style=\"text-align:center;\"> 0,25 <\/td>\n   <td style=\"text-align:center;\"> 1,97 <\/td>\n   <td style=\"text-align:center;\"> 4.774,58 <\/td>\n   <td style=\"text-align:center;\"> 13.914,16 <\/td>\n   <td style=\"text-align:center;\"> sufficient sample size <\/td>\n   <td style=\"text-align:center;\"> sufficient df <\/td>\n   <td style=\"text-align:center;\"> cv between 0.15 and 0.3 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;\">poco fiable<\/span> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:center;\"> Región de Ñuble <\/td>\n   <td style=\"text-align:center;\"> 4.306,63 <\/td>\n   <td style=\"text-align:center;\"> 1.159,99 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">81<\/span> <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;\">2107<\/span> <\/td>\n   <td style=\"text-align:center;\"> 0,27 <\/td>\n   <td style=\"text-align:center;\"> 1,99 <\/td>\n   <td style=\"text-align:center;\"> 1.998,61 <\/td>\n   <td style=\"text-align:center;\"> 6.614,64 <\/td>\n   <td style=\"text-align:center;\"> sufficient sample size <\/td>\n   <td style=\"text-align:center;\"> sufficient df <\/td>\n   <td style=\"text-align:center;\"> cv between 0.15 and 0.3 <\/td>\n   <td style=\"text-align:center;\"> <span style=\"     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;\">poco fiable<\/span> <\/td>\n  <\/tr>\n<\/tbody>\n<\/table>",
+    "tituloTAB": {
+      "html": "<div id=\"panel_central\" class=\"titu-ine\">\n  <h2>Resultado evaluación de calidad<\/h2>\n  <div>\n    <div style=\"width:80%; display:inline-block; vertical-align: middle;\">\n      <a id=\"tabla\" class=\"btn btn-default shiny-download-link \" href=\"\" target=\"_blank\" download>\n        <i class=\"fa fa-download\" role=\"presentation\" aria-label=\"download icon\"><\/i>\n        Descargar tabulado\n      <\/a>\n    <\/div>\n    <div style=\"display:inline-block; vertical-align: middle;\">\n      <button id=\"reset\" type=\"button\" class=\"btn action-button btn-danger\">\n        <i class=\"fa fa-sync\" role=\"presentation\" aria-label=\"sync icon\"><\/i>\n        refrescar\n      <\/button>\n    <\/div>\n  <\/div>\n  <div style=\"display:inline-block; horizontal-align: right;\">\n    <button id=\"show\" type=\"button\" class=\"btn btn-default action-button\">Definición de indicadores<\/button>\n  <\/div>\n  <div id=\"PRUEBAS2\" class=\"shiny-html-output\"><\/div>\n  <div style=\"width:100%;overflow-x: scroll;\">\n    <div align=\"center\" style=\"height:200px\">\n      <div id=\"grafico\" class=\"shiny-plot-output\" style=\"width:100%;height:400px;\"><\/div>\n    <\/div>\n    <div class=\"my_table\">\n      <!--SHINY.SINGLETON[3891ac171834ed25f436995ba40a47edd74e5169]-->\n      <head>\n        <link rel=\"stylesheet\" href=\"shinycssloaders-assets/spinner.css\"/>\n        <script src=\"shinycssloaders-assets/spinner.js\"><\/script>\n      <\/head>\n      <!--/SHINY.SINGLETON[3891ac171834ed25f436995ba40a47edd74e5169]-->\n      <!--SHINY.SINGLETON[45534f2c59c7069db5da7f5118dc12c792e86de5]-->\n      <head>\n        <link rel=\"stylesheet\" href=\"shinycssloaders-assets/css-loaders.css\"/>\n      <\/head>\n      <!--/SHINY.SINGLETON[45534f2c59c7069db5da7f5118dc12c792e86de5]-->\n      <head>\n        <style>#spinner-42a13b1cf75372807c9d65e1ddf6da33, #spinner-42a13b1cf75372807c9d65e1ddf6da33:before, #spinner-42a13b1cf75372807c9d65e1ddf6da33:after {   background: white; } #spinner-42a13b1cf75372807c9d65e1ddf6da33 {   color: white; } #spinner-42a13b1cf75372807c9d65e1ddf6da33 { font-size: 8px; }<\/style>\n      <\/head>\n      <div class=\"shiny-spinner-output-container shiny-spinner-hideui \">\n        <div class=\"load-container shiny-spinner-hidden load1\">\n          <div id=\"spinner-42a13b1cf75372807c9d65e1ddf6da33\" class=\"loader\">Loading...<\/div>\n        <\/div>\n        <div style=\"height:400px\" class=\"shiny-spinner-placeholder\"><\/div>\n        <div id=\"tabulado\" class=\"shiny-html-output\"><\/div>\n      <\/div>\n    <\/div>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "font-awesome",
+          "version": "5.15.3",
+          "src": {
+            "href": "font-awesome-5.15.3"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": [
+            "css/all.min.css",
+            "css/v4-shims.min.css"
+          ],
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "shinyBS",
+          "version": "0.61.1",
+          "src": {
+            "href": "sbs"
+          },
+          "meta": null,
+          "script": "shinyBS.js",
+          "stylesheet": "shinyBS.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    }
+  },
+  "export": {
+
+  }
+}

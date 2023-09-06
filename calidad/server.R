@@ -16,12 +16,9 @@
 
 # 4 video
 
-# Generar manual básico de preguntas y respuestas para Tamara de Atención Ciudadana.
-# definir Base de datos a subir
-# base ESI debemos
 
-#library(calidad)
-#library(dplyr)
+# library(calidad)
+library(dplyr)
 library(feather)
 library(forcats)
 library(ggplot2)
@@ -48,38 +45,51 @@ source("download_data.R")
 source("utils.R")
 
 ## testeo
+#
+#  debug_chunk <- print(list(paste("Tipo de calculo:",input$tipoCALCULO),
+#                  paste("acctionButton =",is.null(input$actionTAB)),
+#                  paste("varINTERES =",input$varINTERES),
+#                  paste("varCRUCE =",input$varCRUCE),
+#                  paste("varCRUCE = \"\"",input$varCRUCE == ""),
+#                  paste("varCRUCE = NULL?",is.null(input$varCRUCE)),
+#                  paste("varDENOM =",input$varDENOM),
+#                  paste("varDENOM = \"\"",input$varDENOM == ""),
+#                  paste("varDENOM = NULL?",is.null(input$varDENOM)),
+#                  paste("varSUBPOB =",input$varSUBPOB),
+#                  paste("varSUBPOB = \"\"",input$varSUBPOB == ""),
+#                  paste("varSUBPOB = NULL?",is.null(input$varSUBPOB)),
+#                  paste("varFACTEXP =",input$varFACT1),
+#                  paste("war_varINTERES =",wrn_var_int()),
+#                  paste("war_varDENOM =",wrn_var_denom()),
+#                  paste("warn_var_subpob =",wrn_var_subpop()),
+#                  paste("warn_var_factEXP =",wrn_var_factexp()),
+#                  paste("IC =",input$IC),
+#                  paste("WARN_resume =",warning_resum()),
+#                  paste("datos =",dim(datos()))
+#   ))
 
-# debug_chunk <- print(list(paste("Tipo de calculo:",input$tipoCALCULO),
-#                 paste("acctionButton =",is.null(input$actionTAV)),
-#                 paste("varINTERES =",input$varINTERES),
-#                 paste("varCRUCE =",input$varCRUCE),
-#                 paste("varCRUCE = \"\"",input$varCRUCE == ""),
-#                 paste("varCRUCE = NULL?",is.null(input$varCRUCE)),
-#                 paste("varDENOM =",input$varDENOM),
-#                 paste("varDENOM = \"\"",input$varDENOM == ""),
-#                 paste("varDENOM = NULL?",is.null(input$varDENOM)),
-#                 paste("varSUBPOB =",input$varSUBPOB),
-#                 paste("varSUBPOB = \"\"",input$varSUBPOB == ""),
-#                 paste("varSUBPOB = NULL?",is.null(input$varSUBPOB)),
-#                 paste("varFACTEXP =",input$varFACT1),
-#                 paste("war_varINTERES =",wrn_var_int()),
-#                 paste("war_varDENOM =",wrn_var_denom()),
-#                 paste("warn_var_subpob =",wrn_var_subpop()),
-#                 paste("warn_var_factEXP =",wrn_var_factexp()),
-#                 paste("IC =",input$IC),
-#                 paste("WARN_resume =",warning_resum()),
-#                 paste("datos =",dim(datos()))
-#  ))
+
+
 
 ### DEBUG ####
 auto_load = F
 debug = F
 show_wrn = T
 
+
+
+
 # SERVER ----
 shiny::shinyServer(function(input, output, session) {
   ### trakear error ####
   ## options(shiny.trace = TRUE)
+
+  #### send files names to JS
+
+#  session$sendCustomMessage(
+#    type = "files-names", message = nom_arch_ine
+#  )
+
 
   ## parametro máximo de archivos subidos ###
   options(shiny.maxRequestSize=410*1024^2, scipen=999) # to the top of server.R would increase the limit to 200MB.
@@ -291,13 +301,19 @@ if(auto_load){
   ### + R E N D E R - U I + ####
 
   # ### RENDER: IN SIDE BAR  ####
-  output$etiqueta <- renderUI({
-    req(input$varCRUCE >= 1)
-    req(labelled::is.labelled(datos()[[input$varCRUCE[1]]]))
-    checkboxInput("ETIQUETAS", "Sus datos poseen etiquetas, ¿Desea agregarlas?",value = F)
-
-  })
-
+#  output$etiqueta <- renderUI({
+#
+#    # browser()
+#    req(input$actionTAB)
+#    req(input$varCRUCE >= 1)
+#    req(labelled::is.labelled(datos()[[input$varCRUCE[1]]]))
+#
+#    checkboxInput(inputId = "ETIQUETAS", "Sus datos poseen etiquetas, ¿Desea sacarlas?",value = F)
+#
+#    print(input$ETIQUETAS)
+#
+#  })
+#
   # output$denominador <- renderUI({
   #   # el denominador solo se despliega con el esquema de chile
   #   req(input$tipoCALCULO == "dos" & input$SCHEME == "chile")         #
@@ -315,10 +331,12 @@ if(auto_load){
 
   tabuladoOK <- reactive({
 
+
     req(input$actionTAB)
 
     # para generarse necesita que no hayan warnings
     req(!warning_resum(), input$varINTERES,input$varCONGLOM, input$varESTRATOS, input$varFACT1)
+
 
     tabulado = create_tabulado(base = datos(),
                                v_interes =  input$varINTERES,
@@ -331,7 +349,7 @@ if(auto_load){
                                tipoCALCULO = input$tipoCALCULO,
                                ci = input$IC,
                                scheme = input$SCHEME,
-                               etiquetas = input$ETIQUETAS,
+                               etiquetas = F,#input$ETIQUETAS,
                                ajuste_ene = FALSE)
 
 
@@ -343,6 +361,7 @@ if(auto_load){
 
   observeEvent(tabuladoOK(),{
   output$tabulado  <- renderText({
+
 
 
   out <- tabla_html_shiny(tabuladoOK(), input = input) # %>% rename(es = se, cv = coef_var, media = contains("mean"))
@@ -724,6 +743,32 @@ observeEvent(input$actionTAB,{
     req(input$varCONGLOM == "" || input$varESTRATOS == "" || input$varFACT1 == "")
     shinyalert("¡Error!", "¡Faltan variables del diseño complejo!", type = "error")
   })
+
+
+#  observeEvent(input$tipoCALCULO,{
+#    print(paste("Tipo de calculo:",input$tipoCALCULO),
+#          paste("acctionButton =",is.null(input$actionTAB)),
+#          paste("varINTERES =",input$varINTERES),
+#          paste("varCRUCE =",input$varCRUCE),
+#          paste("varCRUCE = \"\"",input$varCRUCE == ""),
+#          paste("varCRUCE = NULL?",is.null(input$varCRUCE)),
+#          paste("varDENOM =",input$varDENOM),
+#          paste("varDENOM = \"\"",input$varDENOM == ""),
+#          paste("varDENOM = NULL?",is.null(input$varDENOM)),
+#          paste("varSUBPOB =",input$varSUBPOB),
+#          paste("varSUBPOB = \"\"",input$varSUBPOB == ""),
+#          paste("varSUBPOB = NULL?",is.null(input$varSUBPOB)),
+#          paste("varFACTEXP =",input$varFACT1),
+#          paste("war_varINTERES =",wrn_var_int()),
+#          paste("war_varDENOM =",wrn_var_denom()),
+#          paste("warn_var_subpob =",wrn_var_subpop()),
+#          paste("warn_var_factEXP =",wrn_var_factexp()),
+#          paste("IC =",input$IC),
+#          paste("WARN_resume =",warning_resum()),
+#          paste("datos =",dim(datos()))
+#           )
+#  })
+
 
   # r <- reactiveValues(NULL)
 

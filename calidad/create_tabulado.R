@@ -101,7 +101,7 @@ create_tabulado = function(base, v_interes, v_cruce,  v_subpob, v_fexp1, v_congl
   }
 
   #### opción de etiquetas #####
-  if(etiquetas == TRUE && !is.null(v_cruce) && labelled::is.labelled(base[[v_cruce[1]]])){ #
+  if(etiquetas == F && !is.null(v_cruce) && labelled::is.labelled(base[[v_cruce[1]]])){ #
 
     paste_labels = function(tabla, base, var_cruce){
 

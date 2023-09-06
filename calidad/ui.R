@@ -87,6 +87,7 @@ shinyUI(shiny::div(shinyFeedback::useShinyFeedback(),
                                      status = "primary",
                                      justified = TRUE
                                    ),
+                                #       div(id= "origen-datos"),
                                 #   h5("En esta sección puedes escoger la opción de cargar una base de datos desde tu computador, o cargar una base de datos del INE"),
                                    uiOutput("datos_locales"),
                                    uiOutput("DescargaINE"),

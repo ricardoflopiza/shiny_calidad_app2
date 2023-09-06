@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <script type="application/shiny-singletons">add739c82ab207ed2c80be4b7e4b181525eb7a75</script>
+  <script type="application/html-dependencies">jquery[3.6.0];shiny-css[1.7.1];shiny-javascript[1.7.1];shiny-testmode[1.7.1];feedback[0.4.0];font-awesome[5.15.3];toastr[2.1.4];bootstrap[3.4.1];shinyWidgets[0.7.0];selectize[0.12.4]</script>
+<script src="shared/jquery.min.js"></script>
+<link href="shared/shiny.min.css" rel="stylesheet" />
+<script src="shared/shiny.min.js"></script>
+<script src="shared/shiny-testmode.js"></script>
+<link href="feedback-0.4.0/css/shinyfeedback.css" rel="stylesheet" />
+<script src="feedback-0.4.0/js/shinyfeedback.js"></script>
+<link href="font-awesome-5.15.3/css/all.min.css" rel="stylesheet" />
+<link href="font-awesome-5.15.3/css/v4-shims.min.css" rel="stylesheet" />
+<link href="toastr-2.1.4/css/toastr.min.css" rel="stylesheet" />
+<script src="toastr-2.1.4/js/toastr.min.js"></script>
+<script src="toastr-2.1.4/js/shinytoastr.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="shared/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="shared/bootstrap/accessibility/css/bootstrap-accessibility.min.css" rel="stylesheet" />
+<script src="shared/bootstrap/js/bootstrap.min.js"></script>
+<script src="shared/bootstrap/accessibility/js/bootstrap-accessibility.min.js"></script>
+<link href="shinyWidgets/shinyWidgets.min.css" rel="stylesheet" />
+<script src="shinyWidgets/shinyWidgets-bindings.min.js"></script>
+<link href="shared/selectize/css/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="shared/selectize/js/selectize.min.js"></script>
+<script src="shared/selectize/accessibility/js/selectize-plugin-a11y.min.js"></script>  <style>.shinyjs-hide { display: none !important; }</style>
+  <script>Shiny.addCustomMessageHandler('shinyjs-show', function(params) { shinyjs.debugMessage('shinyjs: calling function "show" with parameters:'); shinyjs.debugMessage(params); shinyjs.show(params);});
+Shiny.addCustomMessageHandler('shinyjs-hide', function(params) { shinyjs.debugMessage('shinyjs: calling function "hide" with parameters:'); shinyjs.debugMessage(params); shinyjs.hide(params);});
+Shiny.addCustomMessageHandler('shinyjs-toggle', function(params) { shinyjs.debugMessage('shinyjs: calling function "toggle" with parameters:'); shinyjs.debugMessage(params); shinyjs.toggle(params);});
+Shiny.addCustomMessageHandler('shinyjs-enable', function(params) { shinyjs.debugMessage('shinyjs: calling function "enable" with parameters:'); shinyjs.debugMessage(params); shinyjs.enable(params);});
+Shiny.addCustomMessageHandler('shinyjs-disable', function(params) { shinyjs.debugMessage('shinyjs: calling function "disable" with parameters:'); shinyjs.debugMessage(params); shinyjs.disable(params);});
+Shiny.addCustomMessageHandler('shinyjs-toggleState', function(params) { shinyjs.debugMessage('shinyjs: calling function "toggleState" with parameters:'); shinyjs.debugMessage(params); shinyjs.toggleState(params);});
+Shiny.addCustomMessageHandler('shinyjs-addClass', function(params) { shinyjs.debugMessage('shinyjs: calling function "addClass" with parameters:'); shinyjs.debugMessage(params); shinyjs.addClass(params);});
+Shiny.addCustomMessageHandler('shinyjs-removeClass', function(params) { shinyjs.debugMessage('shinyjs: calling function "removeClass" with parameters:'); shinyjs.debugMessage(params); shinyjs.removeClass(params);});
+Shiny.addCustomMessageHandler('shinyjs-toggleClass', function(params) { shinyjs.debugMessage('shinyjs: calling function "toggleClass" with parameters:'); shinyjs.debugMessage(params); shinyjs.toggleClass(params);});
+Shiny.addCustomMessageHandler('shinyjs-html', function(params) { shinyjs.debugMessage('shinyjs: calling function "html" with parameters:'); shinyjs.debugMessage(params); shinyjs.html(params);});
+Shiny.addCustomMessageHandler('shinyjs-onevent', function(params) { shinyjs.debugMessage('shinyjs: calling function "onevent" with parameters:'); shinyjs.debugMessage(params); shinyjs.onevent(params);});
+Shiny.addCustomMessageHandler('shinyjs-removeEvent', function(params) { shinyjs.debugMessage('shinyjs: calling function "removeEvent" with parameters:'); shinyjs.debugMessage(params); shinyjs.removeEvent(params);});
+Shiny.addCustomMessageHandler('shinyjs-alert', function(params) { shinyjs.debugMessage('shinyjs: calling function "alert" with parameters:'); shinyjs.debugMessage(params); shinyjs.alert(params);});
+Shiny.addCustomMessageHandler('shinyjs-logjs', function(params) { shinyjs.debugMessage('shinyjs: calling function "logjs" with parameters:'); shinyjs.debugMessage(params); shinyjs.logjs(params);});
+Shiny.addCustomMessageHandler('shinyjs-runjs', function(params) { shinyjs.debugMessage('shinyjs: calling function "runjs" with parameters:'); shinyjs.debugMessage(params); shinyjs.runjs(params);});
+Shiny.addCustomMessageHandler('shinyjs-reset', function(params) { shinyjs.debugMessage('shinyjs: calling function "reset" with parameters:'); shinyjs.debugMessage(params); shinyjs.reset(params);});
+Shiny.addCustomMessageHandler('shinyjs-delay', function(params) { shinyjs.debugMessage('shinyjs: calling function "delay" with parameters:'); shinyjs.debugMessage(params); shinyjs.delay(params);});
+Shiny.addCustomMessageHandler('shinyjs-click', function(params) { shinyjs.debugMessage('shinyjs: calling function "click" with parameters:'); shinyjs.debugMessage(params); shinyjs.click(params);});
+Shiny.addCustomMessageHandler('shinyjs-refresh', function(params) { shinyjs.debugMessage('shinyjs: calling function "refresh" with parameters:'); shinyjs.debugMessage(params); shinyjs.refresh(params);});</script>
+  <script src="shinyjs/shinyjs-default-funcs.js"></script>
+  <script>shinyjs.debug = false;</script>
+</head>
+<body>
+  <div>
+    <style type="text/css">
+/*------------------------------------------
+CSS BODY
+------------------------------------------*/
+body {
+font-family: 'Open Sans', sans-serif !important;
+letter-spacing: .02rem;
+text-rendering: optimizeLegibility;
+}
+/*------------FIN-CSS-BODY----------------*/
+
+
+/*------------------------------------------
+CSS HEADER
+------------------------------------------*/
+.top-ine {
+    width: 100%;
+    max-width: 100% !important;
+    background: linear-gradient(135deg,rgb(30, 70, 118) 0,rgb(58, 139, 204) 100%);
+    margin: 0;
+    padding: 0;
+}
+
+.ti-top-ine {
+    font-weight: 100;
+    font-size: 2rem;
+    color: #ffffff;
+    padding: 0;
+    margin: 2.4rem 1.5rem;
+}
+
+.top-ine .container-fluid .container .menu-ine img {
+max-width: 117px;
+padding: 15px 30px 15px 0;
+float: left;
+}
+/*----------FIN-CSS HEADER----------------*/
+
+
+
+/*------------------------------------------
+CSS CONTENIDO DESCRIPCIÓN
+------------------------------------------*/
+.conten-ine {margin: 4rem 0 0;}
+
+.info-aplicativo {
+    border: 1px solid #d8d8d8;
+    border-left: 5px solid #3ba8b4;
+    margin: 0;
+}
+
+.info-aplicativo .col-md-3 {
+    padding:0;
+}
+
+.info-aplicativo .col-md-3 ul.nav-tabs,
+.info-aplicativo .col-md-3 ul li.active a {
+    border: none;
+}
+
+.info-aplicativo .col-md-3 ul li.active a {
+    background-color: #48cedc;
+    color: #ffffff;
+}
+
+.info-aplicativo .col-md-3 ul li {
+    display: block;
+    width: 100%;
+    margin: 0;
+}
+
+.info-aplicativo .col-md-3 ul li.active a,
+.info-aplicativo .col-md-3 ul li a {
+    border-bottom: 1px solid #d8d8d8;
+    border-radius: 0;
+    padding: 2rem;
+    margin: 0;
+}
+
+.nav > li > a:focus,
+.nav > li > a:hover {
+    text-decoration: none;
+    background-color: #f8f8f8;
+}
+
+.info-aplicativo .col-md-9 {
+    border-left: 1px solid #d8d8d8;
+    padding: 3rem;
+}
+
+.info-aplicativo .col-md-9 .titu-ine {
+    font-weight: 800 !important;
+    color: #365c8d !important;
+    margin: 0 0 2rem !important;
+}
+
+.info-aplicativo .col-md-9 .text-ine {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.info-aplicativo .col-md-9 .alert-info .info {
+    float: left;
+    padding-right: 15px;
+}
+/*------FIN-CSS CONTENIDO DESCRIPCIÓN------*/
+
+
+/*------------------------------------------
+CSS SIDEBAR LAYOUT
+------------------------------------------*/
+.dash-ine .container-fluid .container .row {
+margin: 4rem 0;
+padding: 0;
+border: 1px solid #d8d8d8;
+}
+
+/*---------------
+.form-group .shiny-input-container .shiny-input-radiogroup .shiny-input-container-inline .shinyjs-resettable br{
+      height: 0px; /* Modificar aquí la altura deseada
+    }
+-------------*/
+
+
+.dash-ine .container-fluid .container .row .col-sm-3,
+.dash-ine .container-fluid .container .row .col-sm-4 {
+border-right: 1px solid #d8d8d8;
+padding:0 !important;
+}
+
+@media (max-width: 992px) {
+.dash-ine .container-fluid .container .row .col-sm-3,
+.dash-ine .container-fluid .container .row .col-sm-4 {
+border-right: 0 none;
+border-bottom: 1px solid #d8d8d8;
+}
+}
+
+.badge {
+    background-color: #1f9fff;
+    font-family: monospace;
+    font-weight: 800;
+    padding: 2px 5px;
+}
+
+.form-group label {
+    display: block !important;
+}
+
+.dash-ine .container-fluid .container .row .col-sm-3 .well {
+border:0;
+margin-bottom:0;
+border-radius:0;
+}
+
+/*---------FIN-CSS SIDEBAR LAYOUT----------*/
+
+
+/*------------------------------------------
+CSS FOOTER
+------------------------------------------*/
+.footer {
+width: 100%;
+height: auto;
+background-color: #1057A2;
+color: #ffffff;
+}
+
+.footer .container-fluid .container .row .col-md-4 {padding-bottom:30px;}
+
+.footer .container-fluid .container .row .col-md-4 h4 {
+font-weight: 800;
+margin: 0 0 15px;
+}
+
+.footer .container-fluid .container .row {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.footer .container-fluid .container .row .col-md-4 a img.facebook,
+.footer .container-fluid .container .row .col-md-4 a img.twitter,
+.footer .container-fluid .container .row .col-md-4 a img.youtube,
+.footer .container-fluid .container .row .col-md-4 a img.instagram,
+.footer .container-fluid .container .row .col-md-3 a img.facebook,
+.footer .container-fluid .container .row .col-md-3 a img.twitter,
+.footer .container-fluid .container .row .col-md-3 a img.youtube,
+.footer .container-fluid .container .row .col-md-3 a img.instagram {
+height: 27px;
+margin-right: 14px;
+}
+
+
+.footer .container-fluid .container .row .col-md-3 a img.cepal {
+width: 150px;
+padding: 2rem 0;
+}
+
+.footer .container-fluid .container .row .col-md-5 a,
+.footer .container-fluid .container .row .col-md-4 a,
+.footer .container-fluid .container .row .col-md-3 a {
+color: #fff;
+text-decoration: underline;
+}
+
+.footer .container-fluid .container .row .col-md-4 p,
+.footer .container-fluid .container .row .col-md-3 p {
+margin: 0 0 5px;
+}
+
+
+/*------------FIN-CSS FOOTER--------------*/
+
+
+
+/*------------------------------------------
+CSS PIE
+------------------------------------------*/
+.pie-ine {
+background: #0d3a5e;
+color: #ffffff;
+font-size: 1.6rem;
+}
+
+.container-fluid .container .text-right {
+padding: 2rem 0;
+}
+/*--------------FIN-CSS PIE---------------*/
+
+
+
+/*------------------------------------------
+CSS Resoluciones
+------------------------------------------*/
+@media (max-width: 992px) {
+    .footer .row .col-md-2 img {
+        width: 184px !important;
+        padding: 0 0 4rem !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1500px;
+    }
+}</style>
+    <div class="top-ine">
+      <div class="container-fluid">
+        <div class="container"><div class="menu-ine">
+                <a href="https://www.ine.cl" target="_blank" title="Ir al Instituto Nacional de Estadísticas">
+                    <img class="logo-ine" src="ine_blanco.svg" alt="INE">
+                </a>            </div>
+            <div class="pull-right">
+                   <h3 class="ti-top-ine">Evaluación de Calidad de Estimaciones en Encuestas de Hogares</h3>
+            </div></div>
+      </div>
+    </div>
+    <div class="conten-ine">
+      <div class="container-fluid">
+        <div class="container"><div class="row info-aplicativo">
+                <div class="col-md-3">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">¿Qué es y a quién aplica?</a></li>
+                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Uso del Aplicativo</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-9">
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="home">
+                            <h4 class="titu-ine">¿Qué es y para quién está pensado?</h4>
+                            <p>
+                                Esta aplicación permite acercar a las personas usuarias la implementación del estándar de calidad para la evaluación
+                                de estimaciones en encuestas de hogares del INE y CEPAL. A través de ella, las personas usuarias pueden conocer la precisión
+                                que tienen las estimaciones generadas a partir de encuestas producidas por el INE u otras encuestas que utilicen
+                                muestreo probabilístico estratificado y en 2 etapas. Con esto se busca poner a disposición de la comunidad una
+                                herramienta interactiva para la cual no se requiere contar con conocimientos de programación, promoviendo el uso
+                                adecuado de la información publicada. Esta aplicación permite evaluar la calidad de la estimación de medias, totales
+                                y proporciones.<br><br>
+                            </p>
+                            <div class="alert alert-info" style="margin:0;" role="alert">
+                                <small>
+                                <img width="50" class="info" src="icon-info.svg" alt="icono-información">
+                                Para un uso adecuado de esta herramienta se recomienda que la persona usuaria conozca las bases de datos que está
+                                utilizando y sus libros de código, así como también se espera un conocimiento mínimo sobre diseños estadísticos complejos.
+                                </small>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="profile">
+                            <h4 class="titu-ine">Uso del aplicativo</h4>
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/JWnnadpvEkA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p>
+                                <br>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla nec augue et imperdiet. Vivamus ac mi ut arcu
+                                fermentum efficitur pharetra in est. Sed sit amet ultrices urna, vitae ultrices lorem.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div></div>
+      </div>
+    </div>
+    <div class="dash-ine">
+      <div class="container-fluid">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-3">
+              <form class="well" role="complementary">
+                <div class="form-group shiny-input-container shiny-input-radiogroup shiny-input-container-inline">
+                  <label id="Id004-label" class="control-label" for="Id004"><h4>Definir base de datos de análisis</h4> <h5> En esta sección puedes escoger la opción de cargar una base de datos del INE, o cargar una base desde tu computador</h5> </label>
+                  <br/>
+                  <div id="Id004" class="radio-group-buttons" style="width: 100%;">
+                    <div aria-labelledby="Id004-label" class="btn-group btn-group-justified d-flex btn-group-container-sw" data-toggle="buttons" role="group">
+                      <div class="btn-group btn-group-toggle w-100" role="group">
+                        <button class="btn radiobtn btn-primary active">
+                          <input type="radio" autocomplete="off" name="Id004" value="Bases INE" checked="checked"/>
+                          Bases INE
+                        </button>
+                      </div>
+                      <div class="btn-group btn-group-toggle w-100" role="group">
+                        <button class="btn radiobtn btn-primary">
+                          <input type="radio" autocomplete="off" name="Id004" value="Base externa"/>
+                          Base externa
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="datos_locales" class="shiny-html-output"></div>
+                <div id="DescargaINE" class="shiny-html-output"></div>
+                <div class="form-group shiny-input-container shiny-input-radiogroup shiny-input-container-inline">
+  <label id="SCHEME-label" class="control-label" for="SCHEME"><h5>Selecciona el esquema de evaluación <a id="info_estandar" type="button" class="btn btn-default action-button btn-xs badge pull-right">i</a></h5></label>
+  <div id="SCHEME" class="radio-group-buttons" style="width: 100%;">
+    <div aria-labelledby="SCHEME-label" class="btn-group btn-group-justified d-flex btn-group-container-sw" data-toggle="buttons" role="group">
+      <div class="btn-group btn-group-toggle w-100" role="group">
+        <button class="btn radiobtn btn-primary active">
+          <input type="radio" autocomplete="off" name="SCHEME" value="chile" checked="checked"/>
+          chile
+        </button>
+      </div>
+      <div class="btn-group btn-group-toggle w-100" role="group">
+        <button class="btn radiobtn btn-primary">
+          <input type="radio" autocomplete="off" name="SCHEME" value="eclac"/>
+          cepal
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+                <div class="form-group shiny-input-container">
+                  <label class="control-label" id="varINTERES-label" for="varINTERES">
+                    <h5>Variable de interés</h5>
+                  </label>
+                  <div>
+                    <select id="varINTERES" class="form-control"><option value="" selected></option></select>
+                    <script type="application/json" data-for="varINTERES">{"placeholder":"Seleccione la variable","plugins":["selectize-plugin-a11y"]}</script>
+                  </div>
+                </div>
+                <div id="fe_denom">
+                  <div class="form-group shiny-input-container">
+                    <label class="control-label" id="varDENOM-label" for="varDENOM">
+                      <h5>Denominador - Opcional</h5>
+                    </label>
+                    <div>
+                      <select id="varDENOM" multiple="multiple"><option value=""></option></select>
+                      <script type="application/json" data-for="varDENOM">{"plugins":["selectize-plugin-a11y"]}</script>
+                    </div>
+                  </div>
+                </div>
+                <div id="tipoCALCULO" class="form-group shiny-input-radiogroup shiny-input-container" role="radiogroup" aria-labelledby="tipoCALCULO-label">
+                  <label class="control-label" id="tipoCALCULO-label" for="tipoCALCULO">¿Qué tipo de cálculo deseas realizar?</label>
+                  <div class="shiny-options-group">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="tipoCALCULO" value="uno" checked="checked"/>
+                        <span>Media</span>
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="tipoCALCULO" value="dos"/>
+                        <span>Proporción</span>
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="tipoCALCULO" value="tres"/>
+                        <span>Suma variable continua</span>
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="tipoCALCULO" value="cuatro"/>
+                        <span>Conteo casos</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group shiny-input-container">
+                  <label class="control-label" id="varCRUCE-label" for="varCRUCE">
+                    <h5>Desagregación</h5>
+                  </label>
+                  <div>
+                    <select id="varCRUCE" class="form-control" multiple="multiple"><option value=""></option></select>
+                    <script type="application/json" data-for="varCRUCE">{"placeholder":"Seleccione la variable","plugins":["selectize-plugin-a11y"]}</script>
+                  </div>
+                </div>
+                <div class="form-group shiny-input-container">
+                  <div class="checkbox">
+                    <label>
+                      <input id="IC" type="checkbox"/>
+                      <span>¿Deseas agregar intervalos de confianza?</span>
+                    </label>
+                  </div>
+                </div>
+                <div id="etiqueta" class="shiny-html-output"></div>
+                <div class="form-group shiny-input-container">
+                  <label class="control-label" id="varSUBPOB-label" for="varSUBPOB">
+                    <h5>Subpoblación</h5>
+                  </label>
+                  <div>
+                    <select id="varSUBPOB" class="form-control"><option value="" selected></option></select>
+                    <script type="application/json" data-for="varSUBPOB">{"placeholder":"Seleccione la variable","plugins":["selectize-plugin-a11y"]}</script>
+                  </div>
+                </div>
+                <div class="form-group shiny-input-container">
+                  <label class="control-label" id="varFACT1-label" for="varFACT1">
+                    <h5>Variable para factor de expansión</h5>
+                  </label>
+                  <div>
+                    <select id="varFACT1" class="form-control"><option value="" selected></option></select>
+                    <script type="application/json" data-for="varFACT1">{"placeholder":"Seleccione la variable","plugins":["selectize-plugin-a11y"]}</script>
+                  </div>
+                </div>
+                <div class="form-group shiny-input-container">
+                  <label class="control-label" id="varCONGLOM-label" for="varCONGLOM">
+                    <h5>Variable para conglomerados</h5>
+                  </label>
+                  <div>
+                    <select id="varCONGLOM" class="form-control"><option value="" selected></option></select>
+                    <script type="application/json" data-for="varCONGLOM">{"placeholder":"Seleccione la variable","plugins":["selectize-plugin-a11y"]}</script>
+                  </div>
+                </div>
+                <div class="form-group shiny-input-container">
+                  <label class="control-label" id="varESTRATOS-label" for="varESTRATOS">
+                    <h5>Variable para estratos</h5>
+                  </label>
+                  <div>
+                    <select id="varESTRATOS" class="form-control"><option value="" selected></option></select>
+                    <script type="application/json" data-for="varESTRATOS">{"placeholder":"Seleccione la variable","plugins":["selectize-plugin-a11y"]}</script>
+                  </div>
+                </div>
+                <button id="actionTAB" type="button" class="btn btn-default action-button">Generar tabulado</button>
+                <div id="seleccion2" class="shiny-html-output"></div>
+                <div id="botonTAB" class="shiny-html-output"></div>
+              </form>
+            </div>
+            <div class="col-sm-9" role="main">
+              <div id="tituloTAB" class="shiny-html-output"></div>
+              <div id="edicion_datos" class="shiny-html-output"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="container-fluid">
+        <div class="container"><div class="row">
+                <div class="col-md-2">
+                    <a href="https://www.ine.cl" target="_blank" title="Ir al Instituto Nacional de Estadísticas">
+                        <img width="80%" style="padding:0 1rem;" class="cepal" src="logo_ine.svg">
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="https://www.cepal.org/es" target="_blank" title="Ir a cepal">
+                        <img width="79%" style="padding:0 2.7rem;" class="cepal" src="logotipo-cepal-blanco.svg">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <h4>INE en redes sociales</h4>
+                    <a href="https://www.facebook.com/ChileINE/" target="_blank"><img class="facebook" src="facebook.svg"></a>
+                    <a href="https://twitter.com/ine_chile?lang=es" target="_blank"><img class="twitter" src="twitter.svg"></a>
+                    <a href="https://www.youtube.com/user/inechile" target="_blank"><img class="youtube" src="youtube.svg"></a>
+                    <a href="https://www.instagram.com/chile.ine/" target="_blank"><img class="instagram" src="instagram.svg"></a>
+                    <br><br><br>
+                    <h4>Consultas</h4>
+                    <p><a href="https://www.portaltransparencia.cl/PortalPdT/ingreso-sai-v2?idOrg=1003" target="_blank">Solicitud de acceso a la información pública</a></p>
+                    <p><a href="https://atencionciudadana.ine.cl/" target="_blank">Atención ciudadana</a></p>
+                </div>
+                <div class="col-md-5">
+                    <h4>Contacto</h4>
+                    <p>
+                        Dirección nacional: Morandé N°801, piso 22, Santiago, Chile<br>
+                        RUT: 60.703.000-6<br>
+                        Código postal: 8340148<br>
+                    </p>
+                    <h4>SIAC / OIRS</h4>
+                    <p>
+                        Horario de atención:<br>
+                        Lunes a viernes 9:00 a 17:00 horas<br>
+                        Fono : <a>232461010</a> - <a>232461018</a><br>
+                        Correo: ine@ine.cl<br>
+                    </p>
+                </div>
+            </div></div>
+      </div>
+    </div>
+    <div class="pie-ine">
+      <div class="container-fluid">
+        <div class="container">
+        <div class="text-right">
+            Instituto Nacional de Estadísticas
+       </div></div>
+      </div>
+    </div>
+    <script src='./hoge.js'></script>
+  </div>
+</body>
+</html>
