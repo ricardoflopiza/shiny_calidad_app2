@@ -1,6 +1,11 @@
 
+create_tabulado = function(base, v_interes, v_cruce,  v_subpob = NULL, v_fexp1, v_conglom, v_estratos, tipoCALCULO, ci, ajuste_ene,etiquetas=FALSE,denominator,scheme,server = T){
 
-create_tabulado = function(base, v_interes, v_cruce,  v_subpob, v_fexp1, v_conglom, v_estratos, tipoCALCULO, ci, ajuste_ene,etiquetas=FALSE,denominator,scheme,server = T){
+
+  if(v_subpob != ""){
+    base = base %>% dplyr::filter(!!rlang::sym(v_subpob) == 1)
+  }
+
 
   if(length(v_cruce)>1){
     v_cruce_string = paste0(v_cruce, collapse  = "+")
@@ -101,31 +106,31 @@ create_tabulado = function(base, v_interes, v_cruce,  v_subpob, v_fexp1, v_congl
   }
 
   #### opción de etiquetas #####
-  if(etiquetas == F && !is.null(v_cruce) && labelled::is.labelled(base[[v_cruce[1]]])){ #
-
-    paste_labels = function(tabla, base, var_cruce){
-
-      dt = data.frame(valor = labelled::val_labels(base[[var_cruce]]))
-      dt = tibble::rownames_to_column(dt)
-
-      tabla[[var_cruce]] =  unlist(lapply(tabla[[var_cruce]] ,function(x) as.character(dt$rowname[dt$valor == x])))
-      tabla
-    }
-
-    ####  al hacer filtros se eliminan categorias, necesitamos sacar etiquetas de base filtrada
-
-    if(v_subpob!=""){
-      datos2 = base[base[[v_subpob]] == 1,]
-    }else{
-      datos2 = base
-    }
-
-    #asignamos etiquetas
-    for(i in v_cruce){
-      evaluados = paste_labels(tabla = evaluados, base = datos2, var_cruce = i)
-    }
-
-  }
+  # if(etiquetas == F && !is.null(v_cruce) && labelled::is.labelled(base[[v_cruce[1]]])){ #
+  #
+  #   paste_labels = function(tabla, base, var_cruce){
+  #
+  #     dt = data.frame(valor = labelled::val_labels(base[[var_cruce]]))
+  #     dt = tibble::rownames_to_column(dt)
+  #
+  #     tabla[[var_cruce]] =  unlist(lapply(tabla[[var_cruce]] ,function(x) as.character(dt$rowname[dt$valor == x])))
+  #     tabla
+  #   }
+  #
+  #   ####  al hacer filtros se eliminan categorias, necesitamos sacar etiquetas de base filtrada
+  #
+  #   if(v_subpob!=""){
+  #     datos2 = base[base[[v_subpob]] == 1,]
+  #   }else{
+  #     datos2 = base
+  #   }
+  #
+  #   #asignamos etiquetas
+  #   for(i in v_cruce){
+  #     evaluados = paste_labels(tabla = evaluados, base = datos2, var_cruce = i)
+  #   }
+  #
+  # }
   evaluados
 }
 
