@@ -1,4 +1,9 @@
 
+library(haven)
+library(dplyr)
+
+
+## ESI ####
 
 f_variables_interes = function(datos){
 
@@ -139,12 +144,71 @@ print(enusc_2021$mujeres)
 
 
 
-save(enusc_2016,file = "calidad/data/shiny/ENUSC 2016.rda")
-save(enusc_2017,file = "calidad/data/shiny/ENUSC 2017.rda")
-save(enusc_2018,file = "calidad/data/shiny/ENUSC 2018.rda")
-save(enusc_2019,file = "calidad/data/shiny/ENUSC 2019.rda")
-save(enusc_2020_etiq,file = "calidad/data/shiny/ENUSC 2020.rda")
-save(enusc_2021,file = "calidad/data/shiny/ENUSC 2021.rda")
+save(enusc_2016,file = "data/shiny/ENUSC 2016.rda")
+save(enusc_2017,file = "data/shiny/ENUSC 2017.rda")
+save(enusc_2018,file = "data/shiny/ENUSC 2018.rda")
+save(enusc_2019,file = "data/shiny/ENUSC 2019.rda")
+save(enusc_2020_etiq,file = "data/shiny/ENUSC 2020.rda")
+save(enusc_2021,file = "data/shiny/ENUSC 2021.rda")
+
+
+### Casen ####
+
+### Casen 2017
+
+casen_2017 = haven::read_dta("data/Casen 2017.dta")
+
+casen_2017 = casen_2017 %>% mutate(hombres = if_else(sexo==1,1,0),
+                 mujeres = if_else(sexo==2,1,0),
+                 fdt = if_else(activ %in% c(1, 2), 1, 0, missing = 0), # fuerza de trabajo
+         ocupado = if_else(activ == 1, 1, 0, missing = 0), # persona ocupada
+         desocupado = if_else(activ == 2, 1, 0, missing = 0), # persona desocupada
+         metro = if_else(region == 13, 1, 0),
+         pobre_extremo = if_else(pobreza == 1,1,0,NA),
+         pobre_no_extremo = if_else(pobreza == 2,1,0,NA),
+         pobre = if_else(pobreza %in% c(1,2),1,0,NA),
+         no_pobre = if_else(pobreza == 3,1,0,NA))
+
+save(casen_2017,file = "data/shiny/CASEN 2017.rda")
+
+
+### Casen 2022
+
+casen_2022 = haven::read_dta("data/Base de datos Casen 2022 STATA.dta")
+
+casen_2022 = casen_2022 %>% mutate(hombres = if_else(sexo==1,1,0),
+                                   mujeres = if_else(sexo==2,1,0),
+                                   fdt = if_else(activ %in% c(1, 2), 1, 0, missing = 0), # fuerza de trabajo
+                                   ocupado = if_else(activ == 1, 1, 0, missing = 0), # persona ocupada
+                                   desocupado = if_else(activ == 2, 1, 0, missing = 0), # persona desocupada
+                                   metro = if_else(region == 13, 1, 0),
+                                   pobre_extremo = if_else(pobreza == 1,1,0),
+                                   pobre_no_extremo = if_else(pobreza == 2,1,0),
+                                   pobre = if_else(pobreza %in% c(1,2),1,0),
+                                   no_pobre = if_else(pobreza == 3,1,0))
+
+save(casen_2022,file = "data/shiny/CASEN 2022.rda")
+
+load("data/shiny/CASEN 2017.rda")
+
+table(casen_2017$pobreza,exclude = F)
+
+table(casen_2017$pobre,exclude = F)
+table(casen_2017$pobre_extremo,exclude = F)
+
+
+table(casen_2017$pobre,exclude = F)
+
+
+
+table(casen_2017$pobreza_multi_4d,exclude = F)
+
+
+calidad::create_prop()
+calidad::create_mean()
+
+
+
 
 
 

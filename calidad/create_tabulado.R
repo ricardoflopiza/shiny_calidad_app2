@@ -1,6 +1,14 @@
 
 create_tabulado = function(base, v_interes, v_cruce,  v_subpob = NULL, v_fexp1, v_conglom, v_estratos, tipoCALCULO, ci, ajuste_ene,etiquetas=FALSE,denominator,scheme,server = T){
 
+  # print("inside")
+  # print(na.rm != F)
+  #
+  # if(na.rm != F){
+  #   base = base %>% dplyr::filter(!is.na(!!rlang::sym(v_interes)))
+  #
+  #   print(any(is.na(base[v_interes])))
+  # }
 
   if(v_subpob != ""){
     base = base %>% dplyr::filter(!!rlang::sym(v_subpob) == 1)

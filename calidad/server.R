@@ -329,13 +329,65 @@ if(auto_load){
 
   ### CREATE: tabulados  ----
 
+
+
+
+  # observeEvent(input$varINTERES,{
+  #
+  #   if(!is.null(input$remove_na) & input$varINTERES != "" & any(is.na(datos()[input$varINTERES]))){
+  #   shinyalert("¡Advertencia!", "Su variable de interés posee NA, ¿Desea eliminarlos?!", type = "warning",
+  #              inputId = "remove_na",
+  #              confirmButtonText = "OK",
+  #              confirmButtonCol = "#AEDEF4",
+  #              cancelButtonText = "Cancel")
+  #
+  #   na.rm(input$remove_na)
+  #
+  #   # print(input$remove_na)
+  #   # print(na.rm())
+  #   }
+  #
+  # })
+
+  # na.rm = reactiveVal(NULL)
+  #
+  # observe({
+  #
+  #   print("es Na?")
+  #   print(na.rm())
+  #
+  # })
+
+
   tabuladoOK <- reactive({
 
 
-    req(input$actionTAB)
+    req(input$actionTAB,is.null(input$remove_na))
 
     # para generarse necesita que no hayan warnings
     req(!warning_resum(), input$varINTERES,input$varCONGLOM, input$varESTRATOS, input$varFACT1)
+
+    # print("tiene NA")
+    # print(any(is.na(datos()[input$varINTERES])))
+    #
+    #   if(any(is.na(datos()[input$varINTERES]))){
+    #
+    #  shinyalert::shinyalert("¡Advertencia!", "Su variable de interés posee NA, ¿Desea eliminarlos?!", type = "warning",
+    #              inputId = "remove_na",
+    #              confirmButtonText = "OK",
+    #              confirmButtonCol = "#AEDEF4",
+    #              showCancelButton = T,
+    #              cancelButtonText = "Cancel")
+    #
+    #    na.rm(input$remove_na)
+    #    print(input$remove_na)
+    #
+    #
+    #
+    #   print(na.rm())
+    #   }else{
+    #     na.rm(FALSE)
+    #   }
 
 
     tabulado = create_tabulado(base = datos(),
@@ -350,8 +402,10 @@ if(auto_load){
                                ci = input$IC,
                                scheme = input$SCHEME,
                                etiquetas = F,#input$ETIQUETAS,
+                              # na.rm = na.rm(),
                                ajuste_ene = FALSE)
 
+    tabulado
 
   })
 
